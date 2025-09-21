@@ -33,18 +33,21 @@ class Playlist:
         return self.current.title
 
     def next(self):
-       
-        if self.current and self.current.next:
+         if not self.current:
+            return None
+         if self.current.next:
             self.current = self.current.next
-            return self.current.title
-        return None
+         return self.current.title
+       
+        
 
     def prev(self):
        
-        if self.current and self.current.prev:
+        if not self.current:
+            return None
+        if self.current.prev:
             self.current = self.current.prev
-            return self.current.title
-        return None
+        return self.current.title
 
     def insert_after_current(self, title):
         
